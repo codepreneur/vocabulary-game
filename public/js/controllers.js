@@ -16,10 +16,15 @@ angular.module('myApp.controllers', [])
       $scope.name = 'Error!'
     });
 
-  }).controller('MyCtrl1', function($scope) {
+  }).controller('HomeCtrl', function($scope) {
     // write Ctrl here
 
-  }).controller('MyCtrl2', function($scope) {
-    // write Ctrl here
+  }).controller('ScoreCtrl', function($scope,$http,score) {
 
-  });
+
+  }).controller('GameCtrl', function($scope,$location,words,score) {
+
+  }).controller('HighscoreCtrl', function($scope, highscore) {  
+
+
+});
