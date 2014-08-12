@@ -24,6 +24,30 @@ angular.module('myApp.controllers', [])
 
   }).controller('GameCtrl', function($scope,$location,words,score) {
 
+    $scope.words = words;
+
+    $scope.getWords = function(){
+      $scope.threeWords = _.sample($scope.words,3);
+      $scope.guessWord = _.sample($scope.threeWords);
+    }
+    score.now = 0;
+    $scope.getWords();
+
+    $scope.guess = function(word){
+      if($scope.guessWord === word){
+        score.now += 1;
+        score.now === 3 ? $location.path('/score') : $scope.getWords();
+      } else {
+        $location.path('/score');
+      }
+
+    }
+
+    $scope.$on('timer-stopped', function (event, data){
+        $location.path('/score');
+        $scope.$apply();
+    });
+
   }).controller('HighscoreCtrl', function($scope, highscore) {  
 
 

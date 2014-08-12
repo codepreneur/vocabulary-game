@@ -1,1 +1,16 @@
-<h1>This is game</h1>
+<div class="panel panel-default" style="margin-top: 50px;">
+ 
+  <div class="panel-heading"><b>Time left:  </span><timer style="color: red;" interval="1000" countdown="30">{{countdown}}</timer></b><span class="pull-right"><b>Learn Spanish!</b></span></div>
+  <div class="panel-body">
+    <h3>{{guessWord.en}}</h3>
+    <p>(<i>{{guessWord.def}}</i>)</p>
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item"><h5>In Spanish?</h5></li>
+ 
+		<div class="btn-group" ng-repeat="word in threeWords">
+	  <label class="btn btn-success well" style="color: black;" ng-click="guess(word)">{{word.es}}</label>
+		</div>
+  </ul>
+</div>

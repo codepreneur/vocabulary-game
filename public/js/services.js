@@ -4,7 +4,11 @@
 
 
 angular.module('myApp.services', [])
-  .value('words', [{
+  .factory('score',function($http){
+      return {
+        now : 0
+      }
+    }).value('words', [{
     "en": "Good morning",
     "es": "Buenos días",
     def: "A conventional expression of greeting or farewell used in the morning."
