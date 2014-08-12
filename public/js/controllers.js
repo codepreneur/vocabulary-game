@@ -20,7 +20,17 @@ angular.module('myApp.controllers', [])
     // write Ctrl here
 
   }).controller('ScoreCtrl', function($scope,$http,score) {
-
+    
+    $scope.score = score.now;
+    $scope.submitted = false;
+    $scope.score === 3 ? $scope.won = true : $scope.won = false;
+    $scope.clearScore = function(){
+      score.now = 0;
+    }
+    $scope.addScore = function(){
+      $http.post('/api/highscore',{name: $scope.player, score: $scope.score})
+      $scope.submitted = true;
+    }
 
   }).controller('GameCtrl', function($scope,$location,words,score) {
 

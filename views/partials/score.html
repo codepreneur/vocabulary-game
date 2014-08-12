@@ -1,1 +1,13 @@
-<h1>This is score</h1>
+<div class="container well">
+
+	<h1 ng-show="won" class="alert alert-success">You Won!</h1>
+	<h1 ng-hide="won" class="alert alert-danger">You Lost!</h1>
+	<h3>Your score is: <b>{{score}}</b></h3>
+	<div ng-hide="submitted">
+		<input type="text" ng-model="player" placeholder="Enter your name...">
+		<button class="btn btn-primary" ng-click="addScore()">Add me to the board!</button>
+	</div>
+	<br />
+	<a href="/game" style="margin-top: 50px;" ng-click="clearScore()" class="btn btn-danger">Play Again!</a>
+
+</div>
