@@ -47,12 +47,21 @@ if (app.get('env') === 'production') {
  * Routes
  */
 
+var scores = [];
+
+app.post('/api/highscore', function(req,res){
+	scores.push({name: req.body.name, score: req.body.score})
+});
+
 // serve index and view partials
 app.get('/', routes.index);
 app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/name', api.name);
+app.get('/api/highscore', function(req,res){
+	res.json(scores);
+});
 
 // redirect all others to the index (HTML5 history)
 app.get('/home', routes.index);

@@ -8,7 +8,13 @@ angular.module('myApp.services', [])
       return {
         now : 0
       }
-    }).value('words', [{
+    }).factory('highscore',function($http){
+    return {
+      get: function(){
+        return $http.get('/api/highscore');
+      }
+    }
+  }).value('words', [{
     "en": "Good morning",
     "es": "Buenos días",
     def: "A conventional expression of greeting or farewell used in the morning."

@@ -20,7 +20,7 @@ angular.module('myApp.controllers', [])
     // write Ctrl here
 
   }).controller('ScoreCtrl', function($scope,$http,score) {
-    
+
     $scope.score = score.now;
     $scope.submitted = false;
     $scope.score === 3 ? $scope.won = true : $scope.won = false;
@@ -60,5 +60,10 @@ angular.module('myApp.controllers', [])
 
   }).controller('HighscoreCtrl', function($scope, highscore) {  
 
+    // data will be lost if page is refreshed, becase it is only being persisted in the memory of Node.js
+
+    highscore.get().success(function(data){
+      $scope.highscores = data;
+    })  
 
 });
