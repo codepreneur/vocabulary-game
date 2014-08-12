@@ -7,7 +7,9 @@ angular.module('myApp', [
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
-  'ngRoute'
+  'ngRoute',
+  'ui.bootstrap',
+  'timer'
 ]).config(function($routeProvider, $locationProvider) {
   $routeProvider.when('/home', {
     templateUrl: 'partials/home.html',
