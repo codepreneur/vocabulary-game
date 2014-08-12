@@ -8,5 +8,9 @@
     "express": "~3.4.7",
     "ejs": "~0.8.5",
     "bower": "~1.2.8"
+  },
+  "devDependencies": {
+    "karma": "^0.12.21",
+    "karma-jasmine": "^0.1.5"
   }
 }
